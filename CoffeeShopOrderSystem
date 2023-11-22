@@ -8,37 +8,11 @@ public class CoffeeShopOrderSystem {
         // 1. If-else and Nested If-else
         System.out.println("Welcome to Bloxcoffee!");
 
-        System.out.print("Enter your role (barista/customer): ");
-        String role = scanner.nextLine();
-
-        if (role.equals("barista")) {
-            System.out.println("You are a barista. Ready to take and prepare orders.");
-
-            // Nested If-else for Coffee Type
-            System.out.print("Enter coffee type (espresso/latte/cappuccino): ");
-            String coffeeType = scanner.nextLine();
-
-            if (coffeeType.equals("espresso")) {
-                System.out.println("Prepare a strong shot of espresso.");
-            } else if (coffeeType.equals("latte")) {
-                System.out.println("Prepare a latte with steamed milk and a shot of espresso.");
-            } else if (coffeeType.equals("cappuccino")) {
-                System.out.println("Prepare a cappuccino with equal parts of espresso, steamed milk, and frothed milk.");
-            } else {
-                System.out.println("Invalid coffee type.");
-            }
-
-        } else if (role.equals("customer")) {
-            System.out.println("You are a customer. Ready to place an order.");
-        } else {
-            System.out.println("Invalid role. Please enter 'barista' or 'customer'.");
-        }
-
         // 2. While and Nested While
         System.out.println("\nCoffee Order System:");
         int choice;
-        String[] menu = {"Espresso", "Latte", "Cappuccino"};
-        double[] prices = {2.5, 3.5, 4.0};
+        String[] menu = {"Cookies and Cream", "Caramel Macchiato", "Americano", "Espresso", "Latte"};
+        double[] prices = {28.0,27.0, 17.0, 25.0,22.0};
         double totalAmount = 0;
 
         while (true) {
