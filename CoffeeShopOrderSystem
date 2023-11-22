@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+public class CoffeeShopOrderSystem {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. If-else and Nested If-else
+        System.out.println("Welcome to Bloxcoffee!");
+
+        System.out.print("Enter your role (barista/customer): ");
+        String role = scanner.nextLine();
+
+        if (role.equals("barista")) {
+            System.out.println("You are a barista. Ready to take and prepare orders.");
+
+            // Nested If-else for Coffee Type
+            System.out.print("Enter coffee type (espresso/latte/cappuccino): ");
+            String coffeeType = scanner.nextLine();
+
+            if (coffeeType.equals("espresso")) {
+                System.out.println("Prepare a strong shot of espresso.");
+            } else if (coffeeType.equals("latte")) {
+                System.out.println("Prepare a latte with steamed milk and a shot of espresso.");
+            } else if (coffeeType.equals("cappuccino")) {
+                System.out.println("Prepare a cappuccino with equal parts of espresso, steamed milk, and frothed milk.");
+            } else {
+                System.out.println("Invalid coffee type.");
+            }
+
+        } else if (role.equals("customer")) {
+            System.out.println("You are a customer. Ready to place an order.");
+        } else {
+            System.out.println("Invalid role. Please enter 'barista' or 'customer'.");
+        }
+
+        // 2. While and Nested While
+        System.out.println("\nCoffee Order System:");
+        int choice;
+        String[] menu = {"Espresso", "Latte", "Cappuccino"};
+        double[] prices = {2.5, 3.5, 4.0};
+        double totalAmount = 0;
+
+        while (true) {
+            System.out.println("\n1. Place Order");
+            System.out.println("2. View Total Amount");
+            System.out.println("3. Checkout");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Nested While to ensure valid coffee selection
+                    while (true) {
+                        System.out.println("Menu:");
+                        for (int i = 0; i < menu.length; i++) {
+                            System.out.println((i + 1) + ". " + menu[i] + " - $" + prices[i]);
+                        }
+
+                        System.out.print("Enter the number of the coffee you want to order: ");
+                        int coffeeNumber = scanner.nextInt();
+
+                        if (coffeeNumber >= 1 && coffeeNumber <= menu.length) {
+                            totalAmount += prices[coffeeNumber - 1];
+                            System.out.println("Added " + menu[coffeeNumber - 1] + " to your order.");
+                            break;
+                        } else {
+                            System.out.println("Invalid coffee selection. Try again.");
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Total Amount: $" + totalAmount);
+                    break;
+                case 3:
+                    System.out.println("Thank you for using the Coffee Shop Order System. Your total amount is: $" + totalAmount);
+                    // Exiting the program
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+}
